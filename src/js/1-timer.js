@@ -1,5 +1,7 @@
 import flatpickr from 'flatpickr';
-import 'flatpickr/dist/flatpickr.css'; // Стилі для flatpickr
+// import 'flatpickr/dist/flatpickr.css';
+import 'flatpickr/dist/flatpickr.min.css'; // Стилі для flatpickr
+import { convertMs } from './convertsMs';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css'; // Стилі для iziToast
 
@@ -16,7 +18,7 @@ const options = {
       iziToast.error({
         title: 'Error',
         message: 'Please choose a date in the future',
-        position: 'topRight',
+        position: 'topCenter',
       });
       startBtn.disabled = true;
       userSelectedDate = null;
@@ -30,6 +32,7 @@ const options = {
 const flatpickrInstance = flatpickr('#datetime-picker', options);
 
 const startBtn = document.querySelector('[data-start]');
+startBtn.disabled = true;
 let userSelectedDate = null;
 let timerId = null;
 
@@ -64,6 +67,14 @@ startBtn.addEventListener('click', () => {
     document.querySelector('[data-days]').textContent = days
       .toString()
       .padStart(2, '0');
-    // Аналогічно для інших полів
+    document.querySelector('[data-hours]').textContent = hours
+      .toString()
+      .padStart(2, '0');
+    document.querySelector('[data-minutes]').textContent = minutes
+      .toString()
+      .padStart(2, '0');
+    document.querySelector('[data-seconds]').textContent = seconds
+      .toString()
+      .padStart(2, '0');
   }, 1000);
 });
