@@ -54,7 +54,6 @@ formLabel.style.flexDirection = 'column';
 formBtn.style.width = '360px';
 formBtn.style.marginTop = '24px';
 formBtn.style.padding = '10px';
-// formBtn.style.backgroundColor = '#4E75FF';
 formBtn.style.color = '#FFF';
 formBtn.style.border = 'none';
 formBtn.style.borderRadius = '4px';
